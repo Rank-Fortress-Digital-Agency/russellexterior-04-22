@@ -1,339 +1,558 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <style>
-        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+      /* Global Styles */
 
-/* Global Styles */
+      * {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-* {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      body {
+        padding: 40px 10%;
+        background: #f5f5f5;
+      }
 
-body {
-  padding: 40px 10%;
-  background: #f5f5f5;
-}
+      a {
+        text-decoration: none;
+      }
 
-a{
-  text-decoration: none;
-}
+      /* Container Styles */
+      .container {
+        display: flex;
+      }
+      .main-wrapper {
+        flex: 2;
+      }
+      .side-bar {
+        background: #faf9f9;
+        flex: 1;
+        padding: 40px;
+        /* background-color: white; */
+      }
 
-/* Container Styles */
-.container {
-  display: flex;
-}
-.main-wrapper{
-  flex: 2;
-}
-.side-bar{
-  background: #faf9f9;
-  flex: 1;
-  padding: 40px;
-  /* background-color: white; */
-}
+      .side-bar ul {
+        padding: 0 40px;
+        list-style: none;
+      }
 
-.side-bar ul{
-  padding: 0 40px;
-  list-style: none;
-}
+      .side-bar {
+        background: rgb(230, 230, 231);
+      }
 
-.side-bar{
-  background: rgb(230, 230, 231);
-}
+      @media only screen and (max-width: 900px) {
+        .container {
+          flex-direction: column;
+        }
+        .side-bar {
+          background: #114;
+          color: white !important;
+        }
+        .side-bar a {
+          color: white !important;
+        }
+      }
 
+      /* Navigation Menu Styles */
 
-@media only screen and (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-  .side-bar{
-    background: #114;
-    color: white !important;
-  }
-  .side-bar a{
-    color: white !important;
-  }
-}
+      nav.nav-menu {
+        width: 100%;
+        background-color: #114;
+        padding: 10px;
+      }
 
+      nav.nav-menu ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        font-size: clamp(0.8rem, 1.2vw, 2rem);
+      }
 
+      .nav-menu .nav-item {
+        padding: 15px;
+        transition: background-color 500ms ease-in-out;
+      }
 
-/* Navigation Menu Styles */
+      .nav-menu .nav-item:hover {
+        cursor: pointer;
+        background-color: #f5f5f54d;
+      }
 
-nav.nav-menu {
-  width: 100%;
-  background-color: #114;
-  padding: 10px;
-}
+      .nav-menu .nav-item a {
+        text-decoration: none;
+        color: white;
+      }
 
-nav.nav-menu ul {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  list-style: none;
-  font-size: clamp(.8rem, 1.2vw, 2rem); 
-}
+      /* Main Content Wrapper Styles */
+      .main-wrapper {
+        background: white;
+        padding: 40px;
+      }
 
-.nav-menu .nav-item {
-  padding: 15px;
-  transition: background-color 500ms ease-in-out;
-}
+      section {
+        margin-bottom: 60px;
+      }
 
-.nav-menu .nav-item:hover {
-  cursor: pointer;
-  background-color: #f5f5f54d;
-}
+      section.head,
+      section.youtube-embed {
+        text-align: center;
+      }
 
-.nav-menu .nav-item a{
-  text-decoration: none;
-  color: white;
-}
+      .button-link {
+        display: block;
+        margin: 20px 0 0 0;
+        padding: 10px 40px;
+        width: fit-content;
+        background: #114;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s transform ease-in-out;
+      }
 
+      .button-link:hover {
+        transform: scale(1.05);
+      }
 
-/* Main Content Wrapper Styles */
-.main-wrapper {
-  background: white;
-  padding: 40px;
-}
+      h1 {
+        font-size: 34px;
+      }
 
-section {
-  margin-bottom: 60px;
-}
+      h2 {
+        margin-bottom: 20px;
+      }
 
-section.head,
-section.youtube-embed {
-  text-align: center;
-}
+      p {
+        text-align: justify;
+        margin-bottom: 10px;
+        line-height: 1.5rem;
+      }
 
-.button-link {
-  display: block;
-  margin: 20px 0 0 0;
-  padding: 10px 40px;
-  width: fit-content;
-  background: #114;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s transform ease-in-out;
-}
+      img {
+        max-width: 100%;
+      }
 
-.button-link:hover {
-  transform: scale(1.05);
-}
+      .two-col {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
 
-h1 {
-  font-size: 34px;
-}
+      .two-col div {
+        width: 50%;
+      }
 
-h2 {
-  margin-bottom: 20px;
-}
+      @media only screen and (max-width: 900px) {
+        body {
+          padding: 0;
+        }
 
-p {
-  text-align: justify;
-  margin-bottom: 10px;
-  line-height: 1.5rem;
-}
+        .two-col {
+          flex-direction: column;
+        }
 
-img {
-  max-width: 100%;
-}
+        .two-col div {
+          width: 100%;
+        }
 
-.two-col {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
+        .main-wrapper {
+          padding: 5%;
+        }
+      }
+    </style>
+    <title>
+      The Most Important Asphalt Shingles Benefits for Your Home | Russell
+      Exterior
+    </title>
+  </head>
 
-.two-col div {
-  width: 50%;
-}
+  <body>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item">
+          <a href="https://www.russellexterior.com/">Main</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://g.page/RussellExterior?share">Maps</a>
+        </li>
+        <li class="nav-item"><a href="./media.html">Media</a></li>
+        <li class="nav-item">
+          <a
+            href="https://sites.google.com/view/roofingcontractorfortsmitharru/Roofing-Contractor-Fort-Smith"
+            >Russell Exterior</a
+          >
+        </li>
+      </ul>
+    </nav>
 
-@media only screen and (max-width: 900px) {
-  body {
-    padding: 0;
-  }
+    <!-- Main Content Container -->
+    <div class="container">
+      <!-- Main Content Wrapper -->
+      <div class="main-wrapper">
+        <section
+          style="
+            background-image: url(https://lh3.googleusercontent.com/geougc/AF1QipO7bcEVLQjJyGB1OD4R97PCkm2_-bMkVzhQYnz7=h400-no);
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: 0%;
+            min-height: 350px;
+            padding: 20px;
+            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.397);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          "
+          class="head"
+        >
+          <h1>The Most Important Asphalt Shingles Benefits for Your Home</h1>
+        </section>
 
-  .two-col {
-    flex-direction: column;
-  }
-
-  .two-col div {
-    width: 100%;
-  }
-
-  .main-wrapper {
-    padding: 5%;
-  }
-}
-   </style>
-  <title>The Most Important Asphalt Shingles Benefits for Your Home | Russell Exterior</title>
-</head>
-
-<body>
-  <!-- Navigation Menu -->
-  <nav class="nav-menu">
-    <ul>
-      <li class="nav-item"><a href="https://www.russellexterior.com/">Main</a></li>
-      <li class="nav-item"><a href="https://g.page/RussellExterior?share">Maps</a></li>
-      <li class="nav-item"><a href="./media.html">Media</a></li>
-      <li class="nav-item"><a
-          href="https://sites.google.com/view/roofingcontractorfortsmitharru/Roofing-Contractor-Fort-Smith">Russell Exterior</a></li>
-    </ul>
-  </nav>
-
-  <!-- Main Content Container -->
-  <div class="container">
-
-    <!-- Main Content Wrapper -->
-    <div class="main-wrapper">
-      <section style="background-image: url(https://lh3.googleusercontent.com/geougc/AF1QipO7bcEVLQjJyGB1OD4R97PCkm2_-bMkVzhQYnz7=h400-no); background-attachment: fixed; background-size: cover; background-position:0%; min-height: 350px; padding: 20px; box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.397); color: white; display:flex; flex-direction: column; justify-content: center" class="head">
-        <h1>The Most Important Asphalt Shingles Benefits for Your Home</h1>
-      </section>
-
-      <section>
-          <p>There are many asphalt shingles benefits that you can take advantage of when you have this roofing material installed on your home. Some of the most important include protection from the elements, durability, and affordability. Keep reading to learn more about these benefits and how they can benefit you and your home.</p>
-          <br>
+        <section>
+          <p>
+            There are many asphalt shingles benefits that you can take advantage
+            of when you have this roofing material installed on your home. Some
+            of the most important include protection from the elements,
+            durability, and affordability. Keep reading to learn more about
+            these benefits and how they can benefit you and your home.
+          </p>
+          <br />
           <div>
-            <iframe width="100%" height="500" src="https://www.youtube.com/embed/iDnHVW73O68" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe
+              width="100%"
+              height="500"
+              src="https://www.youtube.com/embed/iDnHVW73O68"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
           </div>
-          <a class="button-link"
-                href="https://www.russellexterior.com/the-most-important-asphalt-shingles-benefits-for-your-home">Read Post</a>
-      </section>
+          <a
+            class="button-link"
+            href="https://www.russellexterior.com/the-most-important-asphalt-shingles-benefits-for-your-home"
+            >Read Post</a
+          >
+        </section>
 
-      <section>
+        <section>
           <h2>Longer Lasting Appearance & Weather-Resistance</h2>
 
           <div class="two-col">
             <div>
-                <p>When you are looking for a <a href="https://www.russellexterior.com/roofing">roofing</a> contractor, it is important that you find one that will give you the best quality work. Not only do you want your home to look its best, but you also want it to be weather-resistant. A good roofing contractor will be able to give you both of these things. They will be able to give you a longer-lasting appearance and weather resistance.</p>
-                <p>One of the best ways to find a roofing contractor is by asking for referrals from family and friends. If they have had a good experience with a roofing contractor, they will be more than happy to refer you. You can also go online and look for reviews.</p>
+              <p>
+                When you are looking for a
+                <a href="https://www.russellexterior.com/roofing">roofing</a>
+                contractor, it is important that you find one that will give you
+                the best quality work. Not only do you want your home to look
+                its best, but you also want it to be weather-resistant. A good
+                roofing contractor will be able to give you both of these
+                things. They will be able to give you a longer-lasting
+                appearance and weather resistance.
+              </p>
+              <p>
+                One of the best ways to find a roofing contractor is by asking
+                for referrals from family and friends. If they have had a good
+                experience with a roofing contractor, they will be more than
+                happy to refer you. You can also go online and look for reviews.
+              </p>
             </div>
             <div>
-                <img src="https://lh3.googleusercontent.com/geougc/AF1QipMAFej3i0c7ymdTS6PS42MA8n5LDGkLGVIhJ2Py=h400-no" alt="Roofing Contractor Fort Smith, AR">
+              <img
+                src="https://lh3.googleusercontent.com/geougc/AF1QipMAFej3i0c7ymdTS6PS42MA8n5LDGkLGVIhJ2Py=h400-no"
+                alt="Roofing Contractor Fort Smith, AR"
+              />
             </div>
           </div>
-          <a class="button-link"
-                href="https://www.russellexterior.com/">Visit Us</a>
-      </section>
+          <a class="button-link" href="https://www.russellexterior.com/"
+            >Visit Us</a
+          >
+        </section>
 
-      <section>
-        <h2>Protection that is both inexpensive and dependable.</h2>
+        <section>
+          <h2>Protection that is both inexpensive and dependable.</h2>
 
-        <div class="two-col">
+          <div class="two-col">
             <div>
-                <img src="https://lirp.cdn-website.com/bf4eb1a2/dms3rep/multi/opt/How+to+choose+the+best+roof+for+your-1920w.png" alt="Roofing Contractor Fort Smith, AR">
+              <img
+                src="https://lh3.googleusercontent.com/geougc/AF1QipM1pNs2KWWZ6ZCcjbSg4woqQFv7VykFo8CLA4O0=h400-no"
+                alt="Roofing Contractor Fort Smith, AR"
+              />
             </div>
-            <div style="display:flex; flex-direction: column; justify-content: center">
-                <p>A roof is one of the most important parts of a home. Not only does it protect the inhabitants and their belongings from the weather, but it can also add to the aesthetic of the property. If you are in need of a new roof or are considering repairs, it is important to choose the right roofing contractor.</p> 
-                <p>First, it is important to research roofing contractors in your area. There are many reputable companies, but it is also important to choose one that is the right fit for your needs. Ask around for recommendations and look online for reviews. Once you have a few options, take some time to compare their services and prices.</p>
-            </div>          
-        </div> 
-        <br>       
-        <p>Second, be sure to get quotes from several different contractors. This will give you a good idea of what the average price range is for the work that you need to be done. It is important to remember that not all contractors charge the same amount for their services, so it is important to compare apples to apples.</p>
-      </section>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+              "
+            >
+              <p>
+                A roof is one of the most important parts of a home. Not only
+                does it protect the inhabitants and their belongings from the
+                weather, but it can also add to the aesthetic of the property.
+                If you are in need of a new roof or are considering repairs, it
+                is important to choose the right roofing contractor.
+              </p>
+              <p>
+                First, it is important to research roofing contractors in your
+                area. There are many reputable companies, but it is also
+                important to choose one that is the right fit for your needs.
+                Ask around for recommendations and look online for reviews. Once
+                you have a few options, take some time to compare their services
+                and prices.
+              </p>
+            </div>
+          </div>
+          <br />
+          <p>
+            Second, be sure to get quotes from several different contractors.
+            This will give you a good idea of what the average price range is
+            for the work that you need to be done. It is important to remember
+            that not all contractors charge the same amount for their services,
+            so it is important to compare apples to apples.
+          </p>
+        </section>
 
-      <section>
+        <section>
+          <h2>
+            There are no complications and only minor structural concerns.
+          </h2>
+          <p>
+            Fort Smith, Arkansas is home to many professional roofers. When it
+            comes time to hire a roofing contractor for your next project, it is
+            important to know what to look for. Not all roofers are created
+            equal, so you'll want to be sure you're hiring a
+            <a href="https://www.russellexterior.com/framing"
+              >qualified contractor</a
+            >
+            who will do the job right the first time.
+          </p>
+          <p>
+            Here are a few tips to help you choose the right roofing contractor
+            for your next project:
+          </p>
+          <br />
+          <ol style="padding-left: 50px">
+            <li>
+              Ask Around - Chances are, you know someone who's had a roofing
+              project done in the past. Ask them for recommendations of good
+              roofers in your area.
+            </li>
+            <br />
+            <li>
+              Get Quotes - Once you've narrowed down your list of potential
+              roofers, get quotes from each of them. This will give you a good
+              idea of what the average cost for the project will be.
+            </li>
+            <br />
+            <li>
+              Check References - Be sure to check the references of any roofer
+              you're considering hiring. Ask them about the quality of the work,
+              the contractor's professionalism, and whether or not they were
+              happy with the final result.
+            </li>
+            <br />
+            <li>
+              Schedule a Time for Inspection - Before you sign any contracts, be
+              sure to schedule a time for the contractor to inspect your roof
+              and give you an estimate. This will help you avoid any surprises
+              down the road.
+            </li>
+          </ol>
+          <br />
+          <p>
+            By following these tips, you'll be sure to find a qualified roofing
+            contractor who will do the job right, and within your budget.
+          </p>
+        </section>
 
-        <h2>There are no complications and only minor structural concerns.</h2>
-        <p>Fort Smith, Arkansas is home to many professional roofers. When it comes time to hire a roofing contractor for your next project, it is important to know what to look for. Not all roofers are created equal, so you'll want to be sure you're hiring a <a href="https://www.russellexterior.com/framing">qualified contractor</a> who will do the job right the first time.</p>
-        <p>Here are a few tips to help you choose the right roofing contractor for your next project:</p><br>
-        <ol style="padding-left:50px">
-          <li>
-            Ask Around - Chances are, you know someone who's had a roofing project done in the past. Ask them for recommendations of good roofers in your area.
-          </li><br>
-          <li>
-            Get Quotes - Once you've narrowed down your list of potential roofers, get quotes from each of them. This will give you a good idea of what the average cost for the project will be.
-          </li><br>
-          <li>
-            Check References - Be sure to check the references of any roofer you're considering hiring. Ask them about the quality of the work, the contractor's professionalism, and whether or not they were happy with the final result.
-          </li><br>
-          <li>
-            Schedule a Time for Inspection - Before you sign any contracts, be sure to schedule a time for the contractor to inspect your roof and give you an estimate. This will help you avoid any surprises down the road.
-          </li>
-        </ol>
-        <br>
-        <p>By following these tips, you'll be sure to find a qualified roofing contractor who will do the job right, and within your budget.</p>
-      
-      </section>
-
-      <section>
+        <section>
           <h2>Conclusion</h2>
-          <p>It is important to choose a roofing material that will fit both your home and your budget. The other thing you'll need to consider when choosing the right contractor for your next project is whether or not they are qualified and dependable. Ask around, get quotes from several different contractors, check references - these steps can help you find an appropriate company that will exceed your expectations.</p>
-          <p>Russell Exterior is one of the most trusted companies in your area. We offer a wide range of roofing services from asphalt shingles, metal roofing, tile roofing, and more. We also offer a year labor warranty on all new roofs installed. Give us a call today for a free estimate!</p>
-          <a class="button-link"
-                href="https://google.com/maps/?cid=2024418528432130108">Find Us Here!</a>
-      </section>
+          <p>
+            It is important to choose a roofing material that will fit both your
+            home and your budget. The other thing you'll need to consider when
+            choosing the right contractor for your next project is whether or
+            not they are qualified and dependable. Ask around, get quotes from
+            several different contractors, check references - these steps can
+            help you find an appropriate company that will exceed your
+            expectations.
+          </p>
+          <p>
+            Russell Exterior is one of the most trusted companies in your area.
+            We offer a wide range of roofing services from asphalt shingles,
+            metal roofing, tile roofing, and more. We also offer a year labor
+            warranty on all new roofs installed. Give us a call today for a free
+            estimate!
+          </p>
+          <a
+            class="button-link"
+            href="https://google.com/maps/?cid=2024418528432130108"
+            >Find Us Here!</a
+          >
+        </section>
 
-      <section>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.6167385255276!2d-94.4207752847505!3d35.34033768027515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1c182decffea883c!2sRussell%20Exterior!5e0!3m2!1sen!2sph!4v1649217714706!5m2!1sen!2sph" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        Roofing%20Contractor%20Fort%20Smith,%20AR</iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.6167385255276!2d-94.4207752847505!3d35.34033768027515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1c182decffea883c!2sRussell%20Exterior!5e0!3m2!1sen!2sph!4v1649217714706!5m2!1sen!2sph"
+            width="100%"
+            height="350"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+            Roofing%20Contractor%20Fort%20Smith,%20AR</iframe
+          >
+        </section>
 
-      <section>
+        <section>
           <h2>Things to do in Fort Smith, AR</h2>
-          <iframe src="https://www.tripadvisor.com.ph/Attractions-g60816-Activities-Fort_Smith_Arkansas.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+          <iframe
+            src="https://www.tripadvisor.com.ph/Attractions-g60816-Activities-Fort_Smith_Arkansas.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
+        <section>
           <h2>Fort Smith, AR News</h2>
-          <iframe src="https://www.5newsonline.com/" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+          <iframe
+            src="https://www.5newsonline.com/"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://www.russellexterior.com/" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.russellexterior.com/"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./media.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./media.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./index.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./index.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
+        <section>
+          <a
+            target="_bLank"
+            href="https://rank-fortress-digital-agency.github.io/russellexterior-04-22/"
+            >https://rank-fortress-digital-agency.github.io/russellexterior-04-22/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="http://russellexterior-04-22.s3-website-ap-southeast-1.amazonaws.com/"
+            >http://russellexterior-04-22.s3-website-ap-southeast-1.amazonaws.com/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="https://enchanting-puffpuff-332448.netlify.app/"
+            >https://enchanting-puffpuff-332448.netlify.app/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="https://sites.google.com/view/roofingcontractorfortsmitharru/Roofing-Contractor-Fort-Smith"
+            >https://sites.google.com/view/roofingcontractorfortsmitharru/Roofing-Contractor-Fort-Smith</a
+          >
+        </section>
+      </div>
 
-          <a target="_bLank" href="#">#</a><br>
-          <a target="_bLank" href="#">#</a><br>
-          <a target="_bLank" href="#">#</a>
+      <!-- Sidebar -->
+      <div class="side-bar">
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li>
+              <a href="https://google.com/maps/?cid=2024418528432130108"
+                >Google Page</a
+              >
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UClHYdfVPZ4SChEyry9Oha4Q"
+                >Youtube</a
+              >
+            </li>
+            <li><a href="#">Pearltrees</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li>
+              <a
+                href="https://sites.google.com/view/roofingcontractorfortsmitharru/Roofing-Contractor-Fort-Smith"
+                >Google Site</a
+              >
+            </li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </section>
 
-      </section>
-
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li><a href="https://www.russellexterior.com/">Main</a></li>
+            <li><a href="https://g.page/RussellExterior?share">Maps</a></li>
+            <li><a href="./media.html">Media</a></li>
+          </ul>
+        </section>
+      </div>
     </div>
-
-    <!-- Sidebar -->
-    <div class="side-bar">
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="https://google.com/maps/?cid=2024418528432130108">Google Page</a></li>
-          <li><a href="https://www.youtube.com/channel/UClHYdfVPZ4SChEyry9Oha4Q">Youtube</a></li>
-          <li><a href="#">Pearltrees</a></li>
-          <li><a href="#">Calendar</a></li>
-          <li><a href="https://sites.google.com/view/roofingcontractorfortsmitharru/Roofing-Contractor-Fort-Smith">Google Site</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://www.russellexterior.com/">Main</a></li>
-          <li><a href="https://g.page/RussellExterior?share">Maps</a></li>
-          <li><a href="./media.html">Media</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
